@@ -7,6 +7,8 @@ import { domainBySlug } from '@/lib/domains';
 import { formatLong } from '@/lib/format';
 
 export const runtime = 'nodejs';
+// Route nay doc DB va cookie -> khong duoc prerender luc build
+export const dynamic = 'force-dynamic';
 
 /** Boc mot o CSV: nhan doi dau nhay, boc trong ngoac kep. */
 function cell(value: string | number | null | undefined) {

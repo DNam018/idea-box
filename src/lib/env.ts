@@ -26,7 +26,12 @@ export const env = {
     return required('ADMIN_EMAIL');
   },
   get adminPasswordHash() {
-    const hash = required('ADMIN_PASSWORD_HASH');
+    // Chap nhan ca hai dang viet:
+    //   - file .env  -> \$2a\$12\$...  (phai escape, vi dotenv-expand doc file)
+    //   - dashboard  -> $2a$12$...     (luu nguyen van, khong escape)
+    // Hash bcrypt khong bao gio chua dau \, nen bo het \ la an toan va
+    // khien ca hai noi deu chay dung.
+    const hash = required('ADMIN_PASSWORD_HASH').replace(/\\/g, '');
     // Next.js nap .env qua dotenv-expand: dau `$` khong escape se bi hieu
     // la ten bien va thay bang chuoi rong, lam hash rach nat ma khong bao loi.
     // Bat loi o day thay vi de dang nhap that bai mot cach kho hieu.

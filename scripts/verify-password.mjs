@@ -28,7 +28,7 @@ if (!raw) {
 }
 
 // Bo dau escape de so sanh dung hash goc
-const hash = raw.replace(/\\\$/g, '$');
+const hash = raw.replace(/\\/g, '');
 
 console.log('\nEmail dang nhap : ' + (email || '(chua dat)'));
 console.log('Hash da escape  : ' + (raw.includes('\\$')

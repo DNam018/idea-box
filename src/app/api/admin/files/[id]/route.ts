@@ -6,6 +6,8 @@ import { requireAdmin } from '@/lib/session';
 import { createDownloadUrl } from '@/lib/storage';
 
 export const runtime = 'nodejs';
+// Route nay doc DB va cookie -> khong duoc prerender luc build
+export const dynamic = 'force-dynamic';
 
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
